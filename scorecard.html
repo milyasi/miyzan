@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="POJK 30/2025 Readiness Scorecard — Diagnostik kesiapan sistem manajemen risiko BPRS/BMT. Gratis, tanpa komitmen. Dari MIYZAN oleh CV Miyzan Technologies.">
+<meta property="og:title" content="POJK 30/2025 Readiness Scorecard — MIYZAN">
+<meta property="og:description" content="Cek kesiapan BPRS/BMT Anda terhadap POJK 30/2025 dalam 5 menit. Gratis.">
+<title>POJK 30/2025 Readiness Scorecard — MIYZAN</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap');
+
+  :root {
+    --green-900: #0a3622;
+    --green-800: #0f5132;
+    --green-700: #145a38;
+    --green-600: #1a7a4a;
+    --green-400: #2da462;
+    --green-200: #a8d5b8;
+    --green-100: #e8f5ee;
+    --gold: #c9922a;
+    --gold-light: #fdf3e3;
+    --red: #c0392b;
+    --red-light: #fdf0ee;
+    --yellow: #d4840a;
+    --yellow-light: #fef9ec;
+    --gray-900: #0f172a;
+    --gray-700: #334155;
+    --gray-500: #64748b;
+    --gray-300: #cbd5e1;
+    --gray-100: #f1f5f9;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f8fafc;
+    color: var(--gray-900);
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--green-900);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+  }
+  .nav-arabic {
+    font-size: 22px;
+    line-height: 1;
+  }
+  .nav-name {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+  .nav-cta {
+    background: var(--gold);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #b8821f; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, var(--green-900) 0%, var(--green-800) 40%, var(--green-700) 100%);
+    padding: 48px 24px 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'مِيزَان';
+    position: absolute;
+    font-size: 180px;
+    opacity: 0.03;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .bismillah {
+    font-size: 20px;
+    opacity: 0.75;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201,146,42,0.2);
+    border: 1px solid rgba(201,146,42,0.4);
+    color: #f4c96e;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 36px);
+    line-height: 1.25;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: #86efac;
+  }
+  .hero p {
+    font-size: 15px;
+    opacity: 0.8;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto 24px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: #86efac;
+  }
+  .hero-stat-label {
+    font-size: 10px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 16px 60px;
+  }
+
+  /* ── PROGRESS STICKY ── */
+  .progress-card {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 58px;
+    z-index: 50;
+    border: 1px solid var(--gray-100);
+  }
+  .progress-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .progress-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--gray-500);
+  }
+  .progress-answered {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 2px;
+  }
+  .progress-pct {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--green-600);
+    line-height: 1;
+  }
+  .progress-bar-bg {
+    height: 8px;
+    background: var(--gray-100);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--green-800), var(--green-400));
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .pill-siap { background: var(--green-100); color: var(--green-600); }
+  .pill-proses { background: var(--yellow-light); color: var(--yellow); }
+  .pill-perlu { background: var(--red-light); color: var(--red); }
+
+  /* ── SECTION ── */
+  .section {
+    background: white;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    overflow: hidden;
+    border: 1px solid var(--gray-100);
+  }
+  .section-hdr {
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .section-hdr:hover { background: var(--gray-100); }
+  .sec-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .sec-info { flex: 1; }
+  .sec-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-900);
+  }
+  .sec-sub {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 2px;
+  }
+  .sec-score {
+    font-size: 16px;
+    font-weight: 800;
+    min-width: 44px;
+    text-align: right;
+  }
+  .sec-chev {
+    font-size: 11px;
+    color: var(--gray-500);
+    transition: transform 0.2s;
+    margin-left: 4px;
+  }
+  .sec-chev.open { transform: rotate(180deg); }
+
+  .section-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.2s;
+    padding: 0 18px;
+  }
+  .section-body.open {
+    max-height: 1200px;
+    padding: 16px 18px;
+  }
+
+  /* ── QUESTION ── */
+  .question {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .question:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  .q-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+  .q-opts {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .opt {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1.5px solid var(--gray-300);
+    background: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-700);
+  }
+  .opt:hover { border-color: var(--green-600); color: var(--green-600); }
+  .opt.yes { background: var(--green-100); border-color: var(--green-600); color: var(--green-600); }
+  .opt.partial { background: var(--yellow-light); border-color: var(--yellow); color: var(--yellow); }
+  .opt.no { background: var(--red-light); border-color: var(--red); color: var(--red); }
+
+  /* ── RESULT ── */
+  .result-wrapper { display: none; margin-top: 8px; }
+
+  .result-hero {
+    border-radius: 14px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .result-hero.green { background: var(--green-100); border: 2px solid var(--green-400); }
+  .result-hero.yellow { background: var(--yellow-light); border: 2px solid var(--yellow); }
+  .result-hero.red { background: var(--red-light); border: 2px solid var(--red); }
+
+  .result-num {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .result-title {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .result-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    max-width: 480px;
+    margin: 0 auto;
+    opacity: 0.85;
+  }
+
+  /* breakdown */
+  .breakdown {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    border: 1px solid var(--gray-100);
+  }
+  .breakdown h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+  }
+  .breakdown-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .breakdown-row:last-child { margin-bottom: 0; }
+  .bd-label {
+    font-size: 12px;
+    font-weight: 600;
+    width: 140px;
+    flex-shrink: 0;
+    color: var(--gray-700);
+  }
+  .bd-bar-bg {
+    flex: 1;
+    height: 8px;
+    background: var(--gray-100);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .bd-bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.6s ease;
+  }
+  .bd-pct {
+    font-size: 12px;
+    font-weight: 700;
+    width: 36px;
+    text-align: right;
+    color: var(--gray-700);
+  }
+
+  /* CTA */
+  .cta-block {
+    background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
+    border-radius: 16px;
+    padding: 28px 24px;
+    color: white;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .cta-block .arabic {
+    font-size: 28px;
+    opacity: 0.4;
+    margin-bottom: 8px;
+  }
+  .cta-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .cta-block p {
+    font-size: 13px;
+    opacity: 0.8;
+    line-height: 1.6;
+    max-width: 440px;
+    margin: 0 auto 20px;
+  }
+  .cta-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: white;
+    padding: 11px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .btn-primary:hover { background: #b8821f; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: white;
+    padding: 11px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    transition: border-color 0.2s;
+  }
+  .btn-outline:hover { border-color: white; }
+  .cta-contact {
+    margin-top: 16px;
+    font-size: 12px;
+    opacity: 0.65;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* reset */
+  .btn-reset {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: var(--gray-100);
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-700);
+    cursor: pointer;
+    margin-bottom: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.15s;
+  }
+  .btn-reset:hover { background: var(--gray-300); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-900);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    line-height: 2;
+  }
+  footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+  footer .arabic-footer { font-size: 16px; opacity: 0.3; margin-bottom: 4px; }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 24px; }
+    .result-num { font-size: 52px; }
+    .bd-label { width: 110px; font-size: 11px; }
+    .cta-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://milyasi.github.io/miyzan" class="nav-brand">
+    <span class="nav-arabic">مِيزَان</span>
+    <span class="nav-name">MIYZAN</span>
+  </a>
+  <a href="https://wa.me/6285363554473?text=Assalamu'alaikum%2C+saya+ingin+konsultasi+POJK+30%2F2025+dengan+MIYZAN." class="nav-cta">Hubungi Kami</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="bismillah">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
+  <div class="hero-badge">✦ Gratis · Tanpa Komitmen · OJK-Ready</div>
+  <h1>POJK 30/2025<br><em>Readiness Scorecard</em></h1>
+  <p>Diagnostik kesiapan sistem manajemen risiko BPRS/BMT terhadap regulasi OJK terbaru — selesai dalam 5 menit.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">5</div>
+      <div class="hero-stat-label">Kategori</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">20</div>
+      <div class="hero-stat-label">Pertanyaan</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5'</div>
+      <div class="hero-stat-label">Waktu</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">0</div>
+      <div class="hero-stat-label">Biaya</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- PROGRESS -->
+  <div class="progress-card">
+    <div class="progress-row">
+      <div>
+        <div class="progress-label">Skor Kesiapan</div>
+        <div class="progress-answered" id="answeredCount">0 dari 20 pertanyaan dijawab</div>
+      </div>
+      <div class="progress-pct" id="progressPct">0%</div>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+    <span class="progress-pill pill-perlu" id="progressPill">Belum Dimulai</span>
+  </div>
+
+  <!-- SECTIONS -->
+  <div id="sections"></div>
+
+  <!-- RESULT -->
+  <div class="result-wrapper" id="resultWrapper">
+
+    <div class="result-hero" id="resultHero">
+      <div class="result-num" id="resultNum">0%</div>
+      <div class="result-title" id="resultTitle">-</div>
+      <div class="result-desc" id="resultDesc">-</div>
+    </div>
+
+    <div class="breakdown">
+      <h3>Breakdown per Kategori</h3>
+      <div id="breakdownRows"></div>
+    </div>
+
+    <button class="btn-reset" onclick="resetAll()">↺ Mulai Ulang Penilaian</button>
+
+    <div class="cta-block">
+      <div class="arabic">مِيزَان</div>
+      <h3>Tingkatkan Kesiapan OJK Anda</h3>
+      <p>MIYZAN — AI Governance Syariah yang sudah live di BPRS Tuah Sakti, Pekanbaru. Audit trail berbasis 5-Nilai Maqasid Syariah, siap diverifikasi OJK kapan saja.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/6285363554473?text=Assalamu'alaikum+Pak+Faisal%2C+saya+baru+menyelesaikan+Readiness+Scorecard+MIYZAN+dan+ingin+konsultasi+lebih+lanjut." class="btn-primary">💬 Konsultasi via WhatsApp</a>
+        <a href="https://milyasi.github.io/miyzan" class="btn-outline">🌐 Lihat Platform MIYZAN</a>
+      </div>
+      <div class="cta-contact">
+        <span>📧 cvmiyzantechnologies@gmail.com</span>
+        <span>📱 085363554473</span>
+        <span>📍 Pekanbaru, Riau</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="arabic-footer">مِيزَان</div>
+  <div><strong style="color:rgba(255,255,255,0.85)">MIYZAN</strong> — CV Miyzan Technologies</div>
+  <div>Pekanbaru, Riau · Indonesia</div>
+  <div><a href="https://milyasi.github.io/miyzan">milyasi.github.io/miyzan</a> · <a href="mailto:cvmiyzantechnologies@gmail.com">cvmiyzantechnologies@gmail.com</a></div>
+  <div style="margin-top:8px;font-size:16px;opacity:0.25">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِيْنَ</div>
+</footer>
+
+<script>
+const DATA = [
+  {
+    id:'ews', icon:'🔔', color:'#1a7a4a', bg:'#e8f5ee',
+    title:'Early Warning System',
+    sub:'Kewajiban utama POJK 30/2025',
+    questions:[
+      {id:'ews1', text:'Apakah BPRS/BMT memiliki sistem EWS berbasis teknologi yang aktif berjalan?'},
+      {id:'ews2', text:'Apakah sistem EWS dapat mendeteksi potensi kredit bermasalah sebelum jatuh tempo?'},
+      {id:'ews3', text:'Apakah output EWS terdokumentasi dan dapat dilaporkan ke OJK?'},
+      {id:'ews4', text:'Apakah ada petugas bertanggung jawab memantau output EWS secara rutin?'},
+    ]
+  },
+  {
+    id:'audit', icon:'📋', color:'#c9922a', bg:'#fdf3e3',
+    title:'Audit Trail & Dokumentasi',
+    sub:'Keterlacakan setiap keputusan kredit',
+    questions:[
+      {id:'a1', text:'Apakah setiap keputusan pembiayaan tercatat secara digital dengan timestamp?'},
+      {id:'a2', text:'Apakah catatan keputusan tidak bisa diubah atau dihapus setelah dibuat?'},
+      {id:'a3', text:'Apakah data audit trail dapat diekspor untuk keperluan pemeriksaan OJK?'},
+      {id:'a4', text:'Apakah ada nomor referensi unik untuk setiap keputusan pembiayaan?'},
+    ]
+  },
+  {
+    id:'syariah', icon:'☪️', color:'#1a5276', bg:'#eaf0fb',
+    title:'Kepatuhan Syariah',
+    sub:'Integrasi prinsip Maqasid Al-Shariah',
+    questions:[
+      {id:'s1', text:'Apakah analisis pembiayaan mencakup penilaian kehalalan usaha nasabah?'},
+      {id:'s2', text:'Apakah sistem dapat mendeteksi potensi riba, gharar, atau maysir secara otomatis?'},
+      {id:'s3', text:'Apakah ada mekanisme review Dewan Pengawas Syariah atas output sistem?'},
+      {id:'s4', text:'Apakah akad pembiayaan terverifikasi sesuai fatwa DSN-MUI yang berlaku?'},
+    ]
+  },
+  {
+    id:'risk', icon:'📊', color:'#6b21a8', bg:'#f5f0ff',
+    title:'Manajemen Risiko',
+    sub:'Scoring dan penilaian berbasis data',
+    questions:[
+      {id:'r1', text:'Apakah ada sistem scoring risiko nasabah yang terstandar dan konsisten?'},
+      {id:'r2', text:'Apakah faktor-faktor penilaian risiko terdokumentasi dengan jelas?'},
+      {id:'r3', text:'Apakah ada laporan risiko berkala yang disiapkan untuk manajemen?'},
+      {id:'r4', text:'Apakah sistem dapat membedakan kategori risiko RENDAH, SEDANG, TINGGI?'},
+    ]
+  },
+  {
+    id:'sdm', icon:'👥', color:'#b91c1c', bg:'#fdf0ee',
+    title:'SDM & Prosedur Operasional',
+    sub:'Kesiapan SOP dan petugas lapangan',
+    questions:[
+      {id:'d1', text:'Apakah ada SOP tertulis untuk proses pre-screening nasabah sebelum input sistem?'},
+      {id:'d2', text:'Apakah officer pembiayaan telah mendapat pelatihan penggunaan sistem?'},
+      {id:'d3', text:'Apakah ada prosedur eskalasi jika sistem menghasilkan output yang meragukan?'},
+      {id:'d4', text:'Apakah dokumen SOP disimpan dan dapat diakses untuk keperluan audit OJK?'},
+    ]
+  }
+];
+
+const answers = {};
+
+function build() {
+  const cont = document.getElementById('sections');
+  DATA.forEach((sec,i) => {
+    const d = document.createElement('div');
+    d.className = 'section';
+    d.innerHTML = `
+      <div class="section-hdr" onclick="toggle('${sec.id}')">
+        <div class="sec-icon" style="background:${sec.bg}">${sec.icon}</div>
+        <div class="sec-info">
+          <div class="sec-title">${sec.title}</div>
+          <div class="sec-sub">${sec.sub}</div>
+        </div>
+        <div class="sec-score" id="sc_${sec.id}" style="color:${sec.color}">—</div>
+        <div class="sec-chev" id="ch_${sec.id}">▼</div>
+      </div>
+      <div class="section-body" id="bd_${sec.id}">
+        ${sec.questions.map(q=>`
+          <div class="question">
+            <div class="q-text">${q.text}</div>
+            <div class="q-opts">
+              <button class="opt" id="b_${q.id}_yes" onclick="ans('${q.id}','yes')">✓ Sudah</button>
+              <button class="opt" id="b_${q.id}_partial" onclick="ans('${q.id}','partial')">◑ Sebagian</button>
+              <button class="opt" id="b_${q.id}_no" onclick="ans('${q.id}','no')">✗ Belum</button>
+            </div>
+          </div>`).join('')}
+      </div>`;
+    cont.appendChild(d);
+  });
+  toggle('ews');
+}
+
+function toggle(id) {
+  DATA.forEach(s => {
+    document.getElementById('bd_'+s.id).classList.remove('open');
+    document.getElementById('ch_'+s.id).classList.remove('open');
+  });
+  const bd = document.getElementById('bd_'+id);
+  const ch = document.getElementById('ch_'+id);
+  const wasOpen = bd.classList.contains('open');
+  if(!wasOpen){ bd.classList.add('open'); ch.classList.add('open'); }
+}
+
+function score(v){ return v==='yes'?1:v==='partial'?0.5:0; }
+
+function ans(qid, val) {
+  answers[qid] = val;
+  ['yes','partial','no'].forEach(v => {
+    const b = document.getElementById(`b_${qid}_${v}`);
+    b.className = 'opt' + (v===val?' '+val:'');
+  });
+  update();
+  checkDone();
+}
+
+function update() {
+  const total = DATA.reduce((a,s)=>a+s.questions.length,0);
+  const done = Object.keys(answers).length;
+  const sc = Object.values(answers).reduce((a,v)=>a+score(v),0);
+  const pct = total>0?Math.round(sc/total*100):0;
+
+  document.getElementById('progressPct').textContent = pct+'%';
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('answeredCount').textContent = `${done} dari ${total} pertanyaan dijawab`;
+
+  const pill = document.getElementById('progressPill');
+  if(pct>=75){ pill.textContent='✅ Siap OJK'; pill.className='progress-pill pill-siap'; }
+  else if(pct>=45){ pill.textContent='⚠️ Perlu Peningkatan'; pill.className='progress-pill pill-proses'; }
+  else { pill.textContent='🔴 Perlu Perhatian'; pill.className='progress-pill pill-perlu'; }
+
+  DATA.forEach(sec => {
+    const secDone = sec.questions.filter(q=>answers[q.id]).length;
+    if(!secDone){ document.getElementById('sc_'+sec.id).textContent='—'; return; }
+    const s = sec.questions.reduce((a,q)=>a+score(answers[q.id]||'no'),0);
+    document.getElementById('sc_'+sec.id).textContent = Math.round(s/sec.questions.length*100)+'%';
+  });
+}
+
+function checkDone() {
+  const total = DATA.reduce((a,s)=>a+s.questions.length,0);
+  if(Object.keys(answers).length===total) showResult();
+}
+
+function showResult() {
+  const total = DATA.reduce((a,s)=>a+s.questions.length,0);
+  const sc = Object.values(answers).reduce((a,v)=>a+score(v),0);
+  const pct = Math.round(sc/total*100);
+
+  const hero = document.getElementById('resultHero');
+  document.getElementById('resultNum').textContent = pct+'%';
+
+  if(pct>=75){
+    hero.className='result-hero green';
+    document.getElementById('resultTitle').textContent='✅ SIAP — Kesiapan OJK Baik';
+    document.getElementById('resultDesc').textContent='Sistem BPRS/BMT Anda sudah cukup siap menghadapi audit POJK 30/2025. Item yang masih "Sebagian" dapat diperkuat dengan solusi MIYZAN untuk mencapai kesiapan penuh.';
+  } else if(pct>=45){
+    hero.className='result-hero yellow';
+    document.getElementById('resultTitle').textContent='⚠️ PERLU PENINGKATAN';
+    document.getElementById('resultDesc').textContent='Ada area penting yang masih memerlukan perhatian. Risiko kepatuhan POJK 30/2025 masih terbuka. MIYZAN dapat membantu menutup gap ini dengan cepat dan efisien.';
+  } else {
+    hero.className='result-hero red';
+    document.getElementById('resultTitle').textContent='🔴 PERLU PERHATIAN SEGERA';
+    document.getElementById('resultDesc').textContent='Sistem BPRS/BMT Anda memiliki risiko signifikan terhadap audit POJK 30/2025. Hubungi MIYZAN untuk konsultasi dan implementasi cepat berbasis sistem yang sudah terbukti live di BPRS nyata.';
+  }
+
+  // Breakdown
+  const rows = document.getElementById('breakdownRows');
+  rows.innerHTML = '';
+  DATA.forEach(sec => {
+    const s = sec.questions.reduce((a,q)=>a+score(answers[q.id]||'no'),0);
+    const p = Math.round(s/sec.questions.length*100);
+    const color = p>=75?'#1a7a4a':p>=45?'#d4840a':'#c0392b';
+    rows.innerHTML += `
+      <div class="breakdown-row">
+        <div class="bd-label">${sec.icon} ${sec.title}</div>
+        <div class="bd-bar-bg">
+          <div class="bd-bar-fill" style="width:${p}%;background:${color}"></div>
+        </div>
+        <div class="bd-pct">${p}%</div>
+      </div>`;
+  });
+
+  document.getElementById('resultWrapper').style.display = 'block';
+  document.getElementById('resultWrapper').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function resetAll() {
+  Object.keys(answers).forEach(k=>delete answers[k]);
+  DATA.forEach(sec => {
+    sec.questions.forEach(q => {
+      ['yes','partial','no'].forEach(v => {
+        const b = document.getElementById(`b_${q.id}_${v}`);
+        if(b) b.className='opt';
+      });
+      document.getElementById('sc_'+sec.id).textContent='—';
+    });
+  });
+  document.getElementById('progressPct').textContent='0%';
+  document.getElementById('progressBar').style.width='0%';
+  document.getElementById('answeredCount').textContent='0 dari 20 pertanyaan dijawab';
+  document.getElementById('progressPill').textContent='Belum Dimulai';
+  document.getElementById('progressPill').className='progress-pill pill-perlu';
+  document.getElementById('resultWrapper').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+build();
+</script>
+</body>
+</html>
