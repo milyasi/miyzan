@@ -1,5 +1,5 @@
 # MIYZAN Press
 
-Lini penerbitan di bawah CV Miyzan Technologies, Pekanbaru, Riau.
+Lini penerbitan di bawah Miyzan Technologies, Pekanbaru, Riau.
 
 Laman bacaan dan halaman ralat.
